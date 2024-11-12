@@ -3,7 +3,10 @@
  * Please visit https://alexa.design/cookbook for additional examples on implementing slots, dialog management,
  * session persistence, api calls, and more.
  * */
+
 const Alexa = require('ask-sdk-core');
+const app = require('express');
+const { ExpressAdapter } = require('ask-sdk-express-adapter');
 
 const LaunchRequestHandler = {
     canHandle(handlerInput) {
