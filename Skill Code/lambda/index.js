@@ -5,7 +5,7 @@
  * */
 
 const Alexa = require('ask-sdk-core');
-const app = require('express');
+const express = require('express');
 const { ExpressAdapter } = require('ask-sdk-express-adapter');
 
 const LaunchRequestHandler = {
