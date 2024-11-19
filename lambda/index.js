@@ -192,6 +192,6 @@ const skill = Alexa.SkillBuilders.custom()
     .create();
 const adapter = new ExpressAdapter(skill, false, false);
 const app = express();
-
+app.use('/', express.static('public'));
 app.post('/', adapter.getRequestHandlers());
 app.listen(3016);
