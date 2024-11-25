@@ -58,14 +58,28 @@ const PlantNameIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'PlantNameIntent';
     },
     handle(handlerInput) {
-        const speakOutput = 'Your plant has been named.';
+        const intent = handlerInput.requestEnvelope.request.intent;
 
-        return handlerInput.responseBuilder
-            .speak(speakOutput)
-            .reprompt(speakOutput)
-            .getResponse();
+        // Check if the slot has a value
+        const plantName = Alexa.getSlotValue(handlerInput.requestEnvelope, 'plantName');
+        if (!plantName) {
+            // If no value, ask the user for the name
+            const askForName = 'What would you like to name your plant?';
+            return handlerInput.responseBuilder
+                .speak(askForName)
+                .reprompt(askForName)
+                .addDelegateDirective(intent)
+                .getResponse();
+        } else {
+            // If the name is provided, respond with a follow-up after a brief pause
+            const speakOutput = `That's a wonderful name for your plant! I'll pretend I didn't hear that.`;
+            return handlerInput.responseBuilder
+                .speak(`<break time="2s"/> ${speakOutput}`) // Wait 2 seconds before speaking
+                .getResponse();
+        }
     }
 };
+
 
 const WaterIntentHandler = {
     canHandle(handlerInput) {
