@@ -73,7 +73,7 @@ const WaterIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'WaterIntent';
     },
     handle(handlerInput) {
-        const speakOutput = 'I have set your plant to watered.';
+        const speakOutput = 'I have set your plant to watered, and you have earned 1 plant point.';
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
