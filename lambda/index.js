@@ -52,14 +52,45 @@ const AddNewPlantIntentHandler = {
     }
 };
 
-const UpdatePlantTypeIntentHandler = {
+const PlantNameIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
-            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'UpdatePlantTypeIntent';
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'PlantNameIntent';
+    },
+    handle(handlerInput) {
+        const speakOutput = 'Your plant has been named.';
+
+        return handlerInput.responseBuilder
+            .speak(speakOutput)
+            .reprompt(speakOutput)
+            .getResponse();
+    }
+};
+
+const WaterIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'WaterIntent';
+    },
+    handle(handlerInput) {
+        const speakOutput = 'I have set your plant to watered.';
+
+        return handlerInput.responseBuilder
+            .speak(speakOutput)
+            .reprompt(speakOutput)
+            .getResponse();
+    }
+};
+
+
+const PlantTypeIntentHandler = {
+    canHandle(handlerInput) {
+        return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
+            && Alexa.getIntentName(handlerInput.requestEnvelope) === 'PlantTypeIntent';
     },
     handle(handlerInput) {
         const type = Alexa.getSlotValue(handlerInput.requestEnvelope, 'type');
-        const speakOutput = 'Your plant has been updated to a ' + type;
+        const speakOutput = 'Your plant has been changed to a ' + type;
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
@@ -180,7 +211,9 @@ const skill = Alexa.SkillBuilders.custom()
         LaunchRequestHandler,
         HelloWorldIntentHandler,
         AddNewPlantIntentHandler,
-        UpdatePlantTypeIntentHandler,
+        PlantNameIntentHandler,
+        WaterIntentHandler,
+        PlantTypeIntentHandler,
         HelpIntentHandler,
         CancelAndStopIntentHandler,
         FallbackIntentHandler,
