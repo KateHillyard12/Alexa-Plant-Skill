@@ -236,7 +236,7 @@ const skill = Alexa.SkillBuilders.custom()
         IntentReflectorHandler)
     .addErrorHandlers(
         ErrorHandler)
-    .withCustomUserAgent('sample/hello-world/v1.2')
+    //.withCustomUserAgent('sample/hello-world/v1.2')
     .create();
 const adapter = new ExpressAdapter(skill, false, false);
 const app = express();
