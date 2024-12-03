@@ -7,93 +7,161 @@
     <style>
         /* Base Styles */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f5f5f5;
+            background: linear-gradient(to bottom, #e3f9e5, #f5f5f5);
             color: #333;
         }
         header {
-            background-color: #4CAF50;
+            background: linear-gradient(90deg, #89aa8a, #648165);
             color: white;
+            padding: 3rem 1rem;
             text-align: center;
-            padding: 1rem 0;
+            position: relative;
+        }
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+        header p {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        .hero-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: white;
+            color: #3c533d;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+        .hero-btn:hover {
+            background: #8bbc8d;
+            color: white;
         }
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 1rem;
+            padding: 2rem 1rem;
         }
-        h1{
-            color: white;
+        .about {
+            text-align: center;
+            margin-bottom: 2rem;
         }
-        h2, h3 {
-            color: #4CAF50;
+        .about h2 {
+            font-size: 2rem;
+            color: #3c533d;
+            margin-bottom: 1rem;
+        }
+        .about p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #555;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
         }
         .feature {
             background: white;
-            border-radius: 8px;
+            border-radius: 12px;
             padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+        }
+        .feature h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            color: #456646;
+        }
+        .feature p {
+            color: #555;
+        }
+        .how-to-use {
+            background: #f9f9f9;
+            padding: 2rem 1rem;
+            border-radius: 12px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        .how-to-use h2 {
+            font-size: 2rem;
+            color: #384a39;
+            margin-bottom: 1rem;
+        }
+        .how-to-use p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #555;
+        }
+        .how-to-use blockquote {
+            font-style: italic;
+            color: #555;
+            margin: 1rem auto;
+            padding: 1rem;
+            border-left: 4px solid #3f5a40;
+            background: #fff;
+            border-radius: 8px;
+            max-width: 600px;
+        }
+        .how-to-use ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+        .how-to-use ul li {
+            margin: 0.5rem 0;
+            font-size: 1rem;
         }
         .btn {
             display: inline-block;
-            padding: 10px 20px;
-            font-size: 16px;
+            padding: 12px 24px;
+            background: #4c6a4d;
             color: white;
-            background-color: #4CAF50;
+            border-radius: 25px;
             text-decoration: none;
-            border-radius: 5px;
-            margin-top: 1rem;
-            text-align: center;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background 0.3s ease;
         }
         .btn:hover {
-            background-color: #45a049;
+            background: #88ad8a;
         }
         footer {
-            text-align: center;
-            padding: 1rem 0;
-            background-color: #333;
+            background: #537655;
             color: white;
+            text-align: center;
+            padding: 1rem;
             margin-top: 2rem;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
+            header {
+                padding: 2rem 1rem;
             }
-            header, footer {
-                padding: 0.5rem 0;
+            header h1 {
+                font-size: 2.5rem;
             }
-            h1 {
+            .hero-btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            .about h2 {
                 font-size: 1.8rem;
-            }
-            h2 {
-                font-size: 1.5rem;
-            }
-            h3 {
-                font-size: 1.2rem;
-            }
-            .btn {
-                padding: 8px 16px;
-                font-size: 14px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.5rem;
-            }
-            h2 {
-                font-size: 1.2rem;
-            }
-            h3 {
-                font-size: 1rem;
-            }
-            .feature {
-                padding: 1rem;
             }
         }
     </style>
@@ -102,44 +170,47 @@
     <header>
         <h1>Plant Alexa Skill</h1>
         <p>Your personal assistant for managing plants at home by Kate Hillyard</p>
+        <a href="#" class="hero-btn">Enable Skill Now</a>
     </header>
 
     <div class="container">
-        <section>
+        <section class="about">
             <h2>About the Skill</h2>
             <p>The Plant Alexa Skill is your ultimate companion for managing your plant collection. With this skill, you can effortlessly store information about your plants and add them to Alexa. Personalize each plant by setting its type and name, and keep track of watering schedules by letting Alexa know when you've watered your plants.</p>
         </section>
 
-        <section>
+        <section class="features">
             <h2>Features</h2>
-            <div class="feature">
-                <h3>🌱 Store Plant Types</h3>
-                <p>Add and categorize plants based on their type, such as succulents, ferns, or flowering plants.</p>
-            </div>
-            <div class="feature">
-                <h3>🕒 Track Watering Schedules</h3>
-                <p>Let Alexa know when you've watered your plant to help keep both you and your plant collection thriving and on track.</p>
-            </div>
-            <div class="feature">
-                <h3>📚 Build Your Home Plant Library</h3>
-                <p>Add plants to your personal library and home.</p>
-            </div>
-            <div class="feature">
-                <h3>🌟 Name New Plants</h3>
-                <p>Name your new plant additions to make them feel right at home and truly personal.</p>
+            <div class="features-grid">
+                <div class="feature">
+                    <h3>Store Plant Types</h3>
+                    <p>Add and categorize plants based on their type, such as succulents, ferns, or flowering plants.</p>
+                </div>
+                <div class="feature">
+                    <h3>Track Watering Schedules</h3>
+                    <p>Let Alexa know when you've watered your plant to help keep both you and your plant collection thriving and on track.</p>
+                </div>
+                <div class="feature">
+                    <h3>Build Your Home Plant Library</h3>
+                    <p>Add plants to your personal library and home.</p>
+                </div>
+                <div class="feature">
+                    <h3>Name New Plants</h3>
+                    <p>Name your new plant additions to make them feel right at home and truly personal.</p>
+                </div>
             </div>
         </section>
 
-        <section>
+        <section class="how-to-use">
             <h2>How to Use</h2>
             <p>Enable the skill on your Amazon Alexa device by saying:</p>
-            <blockquote style="font-style: italic; color: #555;">"Alexa, enable New Plant."</blockquote>
+            <blockquote>"Alexa, enable New Plant."</blockquote>
             <p>Once enabled, you can use commands like:</p>
             <ul>
-                <li><strong>"Alexa, my new plant is a english ivy."</strong></li>
+                <li><strong>"Alexa, my new plant is an English ivy."</strong></li>
                 <li><strong>"Alexa, I have watered my plant."</strong></li>
                 <li><strong>"Alexa, name my plant."</strong></li>
-                <li><strong>"Alexa, add a new plant to my home.</strong></li>
+                <li><strong>"Alexa, add a new plant to my home."</strong></li>
             </ul>
             <a href="#" class="btn">Enable Skill Now</a>
         </section>
