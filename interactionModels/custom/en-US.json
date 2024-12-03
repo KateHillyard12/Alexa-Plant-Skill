@@ -1,0 +1,199 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "slots": [],
+          "name": "HelloWorldIntent",
+          "samples": [
+            "kate is cool",
+            "hello",
+            "how are you",
+            "say hi world",
+            "say hi",
+            "hi",
+            "say hello world",
+            "say hello"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "slots": [],
+          "name": "AddNewPlantIntent",
+          "samples": [
+            "add plant",
+            "i have a new plant",
+            "add a new plant to my home"
+          ]
+        },
+        {
+          "slots": [
+            {
+              "name": "type",
+              "type": "Plant_Type"
+            }
+          ],
+          "name": "PlantTypeIntent",
+          "samples": [
+            "i have a {type}",
+            "my plant is a {type}",
+            "my new plant type is {type}",
+            "update my plant type to a {type}"
+          ]
+        },
+        {
+          "slots": [],
+          "name": "PlantNameIntent",
+          "samples": [
+            "I want to give my new plant a name",
+            "I want to name my plant",
+            "rename this plant",
+            "name my plant"
+          ]
+        },
+        {
+          "slots": [],
+          "name": "WaterIntent",
+          "samples": [
+            "plant watered",
+            "set plant to watered",
+            "my plant has been watered",
+            "I watered my pant"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "peace lily"
+              }
+            },
+            {
+              "name": {
+                "value": "long leafed fig"
+              }
+            },
+            {
+              "name": {
+                "value": "bird of paradise"
+              }
+            },
+            {
+              "name": {
+                "value": "desert cactus"
+              }
+            },
+            {
+              "name": {
+                "value": "chinese evergreen"
+              }
+            },
+            {
+              "name": {
+                "value": "croton"
+              }
+            },
+            {
+              "name": {
+                "value": "satin pothos"
+              }
+            },
+            {
+              "name": {
+                "value": "english ivy"
+              }
+            },
+            {
+              "name": {
+                "value": "norfolk island pine"
+              }
+            },
+            {
+              "name": {
+                "value": "giant white bird of paradise"
+              }
+            },
+            {
+              "name": {
+                "value": "elephant ear"
+              }
+            },
+            {
+              "name": {
+                "value": "philodendron monkey mask"
+              }
+            },
+            {
+              "name": {
+                "value": "dwarf fiddle leaf fig"
+              }
+            },
+            {
+              "name": {
+                "value": "swiss cheese plant"
+              }
+            },
+            {
+              "name": {
+                "value": "rubber plant"
+              }
+            },
+            {
+              "name": {
+                "value": "coconut palm"
+              }
+            },
+            {
+              "name": {
+                "value": "Snake plant"
+              }
+            },
+            {
+              "name": {
+                "value": "ZZ"
+              }
+            },
+            {
+              "name": {
+                "value": "pothos"
+              }
+            }
+          ],
+          "name": "Plant_Type"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "Test"
+              }
+            }
+          ],
+          "name": "plantName"
+        }
+      ],
+      "invocationName": "new plant"
+    }
+  }
+}
