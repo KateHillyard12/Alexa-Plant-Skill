@@ -242,4 +242,4 @@ const adapter = new ExpressAdapter(skill, false, false);
 const app = express();
 app.use(express.static(__dirname + '/public'));
 app.post('/', adapter.getRequestHandlers());
-app.exports = app;
+exports.app = app;
